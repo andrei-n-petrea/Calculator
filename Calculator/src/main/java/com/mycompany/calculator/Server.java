@@ -3,26 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.calculator;
-
 /**
  *
  * @author HP
  */
-
-
 public class Server extends Calculator {
     private int stocare;
     private String procesor;
     private String tipRetea;
     private String sistemOperare;
     private int vitezaInternet;
-
-    // Constructor fără argumente
     public Server() {
         super();
     }
-
-    // Constructor cu toate argumentele
     public Server(String marca, String model, int stocare, String procesor, String tipRetea, String sistemOperare, int vitezaInternet) {
         super(marca, model);
         this.stocare = stocare;
@@ -31,8 +24,6 @@ public class Server extends Calculator {
         this.sistemOperare = sistemOperare;
         this.vitezaInternet = vitezaInternet;
     }
-
-    // Constructor de copiere
     public Server(Server altServer) {
         super(altServer);
         this.stocare = altServer.stocare;
@@ -41,29 +32,20 @@ public class Server extends Calculator {
         this.sistemOperare = altServer.sistemOperare;
         this.vitezaInternet = altServer.vitezaInternet;
     }
-
-    // Metode abstracte
-    
     public void pornire() {
         System.out.println("Serverul se pornește.");
     }
-
-   
     public void oprire() {
         System.out.println("Serverul se oprește.");
     }
-
-    // Metoda toString
- 
-    public String toString() {
-        return "Server [marca=" + getMarca() + ", model=" + getModel() + ", stocare=" + stocare + " GB, procesor=" + procesor + ", tipRetea=" + tipRetea + ", sistemOperare=" + sistemOperare + ", vitezaInternet=" + vitezaInternet + " Mbps]";
-    }
-
-    // Getteri și Setteri
+public String toString() {
+    return super.toString() + " stocare=" + stocare + " GB, procesor=" + procesor + 
+           ", tipRetea=" + tipRetea + ", sistemOperare=" + sistemOperare + 
+           ", vitezaInternet=" + vitezaInternet + " Mbps";
+}
     public int getStocare() {
         return stocare;
     }
-
     public void setStocare(int stocare) {
         this.stocare = stocare;
     }
