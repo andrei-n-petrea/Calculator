@@ -25,11 +25,9 @@ public class Laptop extends Calculator {
         this.tipProcesor = tipProcesor;
         this.arePlacaVideoDed = arePlacaVideoDed;
         this.sistemOperare = sistemOperare;
-        // Creăm o copie a obiectului AccesoriiLaptop pentru a evita aliasingul
         this.accesoriu = accesoriu != null ? new AccesoriiLaptop(accesoriu) : null;
     }
 
-    // Constructor de copiere
     public Laptop(Laptop altLaptop) {
         super(altLaptop.getMarca(), altLaptop.getModel());
         this.diagonalaEcran = altLaptop.diagonalaEcran;
@@ -38,11 +36,9 @@ public class Laptop extends Calculator {
         this.tipProcesor = altLaptop.tipProcesor;
         this.arePlacaVideoDed = altLaptop.arePlacaVideoDed;
         this.sistemOperare = altLaptop.sistemOperare;
-        // Creăm o copie a obiectului AccesoriiLaptop pentru a evita aliasingul
         this.accesoriu = altLaptop.accesoriu != null ? new AccesoriiLaptop(altLaptop.accesoriu) : null;
     }
 
-    // Implementarea metodelor abstracte din Calculator
   
     public void pornire() {
         System.out.println("Laptopul se pornește.");
@@ -53,7 +49,6 @@ public class Laptop extends Calculator {
         System.out.println("Laptopul se oprește.");
     }
 
-    // Metoda toString modificată pentru a include informațiile accesoriului
     
     public String toString() {
         return super.toString() + ", Laptop [diagonalaEcran=" + diagonalaEcran + "\", memorieRAM=" + memorieRAM + " GB, capacitateStocare=" + capacitateStocare + " GB, tipProcesor=" + tipProcesor + ", arePlacaVideoDed=" + arePlacaVideoDed + ", sistemOperare=" + sistemOperare + ", accesoriu=" + (accesoriu != null ? accesoriu.toString() : "Niciun accesoriu") + "]";
