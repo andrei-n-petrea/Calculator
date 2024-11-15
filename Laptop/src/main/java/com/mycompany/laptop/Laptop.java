@@ -54,7 +54,6 @@ public class Laptop extends Calculator {
         return super.toString() + ", Laptop [diagonalaEcran=" + diagonalaEcran + "\", memorieRAM=" + memorieRAM + " GB, capacitateStocare=" + capacitateStocare + " GB, tipProcesor=" + tipProcesor + ", arePlacaVideoDed=" + arePlacaVideoDed + ", sistemOperare=" + sistemOperare + ", accesoriu=" + (accesoriu != null ? accesoriu.toString() : "Niciun accesoriu") + "]";
     }
 
-    // Getteri și setteri pentru AccesoriiLaptop și celelalte variabile
     public AccesoriiLaptop getAccesoriu() {
         return accesoriu;
     }
