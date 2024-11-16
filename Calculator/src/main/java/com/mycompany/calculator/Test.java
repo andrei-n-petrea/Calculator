@@ -21,7 +21,7 @@ public class Test {
         System.out.println();
         AccesoriiLaptop mouse = new AccesoriiLaptop("Mouse wireless", 50.0);
         AccesoriiLaptop husa = new AccesoriiLaptop("Husă laptop", 30.0);
-        AccesoriiLaptop incarcator = new AccesoriiLaptop("Încărcător rapid", 70.0);
+        AccesoriiLaptop incarcator = new AccesoriiLaptop("Încărcător", 70.0);
         Laptop laptop1 = new Laptop("Asus", "ROG", 14, 16, mouse);
         Laptop laptop2 = new Laptop("Dell", "XPS", 13, 8, husa);
         Laptop laptop3 = new Laptop("Apple", "MacBook", 16, 32, incarcator);
