@@ -7,31 +7,33 @@ package com.mycompany.calculator;
  *
  * @author HP
  */
+import java.util.ArrayList;  
 
 public class Server extends Calculator {
-    private int stocare;  
+    private long stocare;
     private String procesor;
-    private byte memorieRAM; 
-    private String tipRetea;
+    private float frecventaProcesor;
+    private short memorieRAM;
+    private ArrayList<Object> instantaVector = new ArrayList<>();
 
     public Server() {
         super();
     }
 
-    public Server(String marca, String model, int stocare, String procesor, byte memorieRAM, String tipRetea) {
+    public Server(String marca, String model, long stocare, String procesor, float frecventaProcesor, short memorieRAM) {
         super(marca, model);
         this.stocare = stocare;
         this.procesor = procesor;
+        this.frecventaProcesor = frecventaProcesor;
         this.memorieRAM = memorieRAM;
-        this.tipRetea = tipRetea;
     }
 
     public Server(Server altServer) {
         super(altServer);
         this.stocare = altServer.stocare;
         this.procesor = altServer.procesor;
+        this.frecventaProcesor = altServer.frecventaProcesor;
         this.memorieRAM = altServer.memorieRAM;
-        this.tipRetea = altServer.tipRetea;
     }
 
     @Override
@@ -46,15 +48,25 @@ public class Server extends Calculator {
 
     @Override
     public String toString() {
-        return super.toString() + " [stocare=" + stocare + " GB, procesor=" + procesor +
-                ", memorieRAM=" + memorieRAM + " GB, tipRetea=" + tipRetea + "]";
+        return super.toString() + " [stocare=" + stocare + " TB, procesor=" + procesor +
+                ", frecventaProcesor=" + frecventaProcesor + " GHz, memorieRAM=" + memorieRAM + " GB]";
     }
 
-    public int getStocare() {
+   
+    public ArrayList<Object> getInstantaVector() {
+        return instantaVector;
+    }
+
+    public void setInstantaVector(ArrayList<Object> instantaVector) {
+        this.instantaVector = instantaVector;
+    }
+
+
+    public long getStocare() {
         return stocare;
     }
 
-    public void setStocare(int stocare) {
+    public void setStocare(long stocare) {
         this.stocare = stocare;
     }
 
@@ -66,19 +78,19 @@ public class Server extends Calculator {
         this.procesor = procesor;
     }
 
-    public byte getMemorieRAM() {
+    public float getFrecventaProcesor() {
+        return frecventaProcesor;
+    }
+
+    public void setFrecventaProcesor(float frecventaProcesor) {
+        this.frecventaProcesor = frecventaProcesor;
+    }
+
+    public short getMemorieRAM() {
         return memorieRAM;
     }
 
-    public void setMemorieRAM(byte memorieRAM) {
+    public void setMemorieRAM(short memorieRAM) {
         this.memorieRAM = memorieRAM;
-    }
-
-    public String getTipRetea() {
-        return tipRetea;
-    }
-
-    public void setTipRetea(String tipRetea) {
-        this.tipRetea = tipRetea;
     }
 }
