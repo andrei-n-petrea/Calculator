@@ -9,7 +9,7 @@ package com.mycompany.calculator;
  */
 public class Desktop extends Calculator {
     private byte capacitateRAM;  
-    private int capacitateHDD;
+    private byte capacitateHDD;
     private String tipCarcasa;
     private String tipPlacaDeBaza;
     private boolean areMonitorInclus;
@@ -18,7 +18,7 @@ public class Desktop extends Calculator {
         super();
     }
 
-    public Desktop(String marca, String model, byte capacitateRAM, int capacitateHDD, String tipCarcasa, String tipPlacaDeBaza, boolean areMonitorInclus) {
+    public Desktop(String marca, String model, byte capacitateRAM, byte capacitateHDD, String tipCarcasa, String tipPlacaDeBaza, boolean areMonitorInclus) {
         super(marca, model);
         this.capacitateRAM = capacitateRAM;
         this.capacitateHDD = capacitateHDD;
@@ -65,7 +65,7 @@ public class Desktop extends Calculator {
         return capacitateHDD;
     }
 
-    public void setCapacitateHDD(int capacitateHDD) {
+    public void setCapacitateHDD(byte capacitateHDD) {
         this.capacitateHDD = capacitateHDD;
     }
 
