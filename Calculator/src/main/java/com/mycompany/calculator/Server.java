@@ -7,45 +7,53 @@ package com.mycompany.calculator;
  *
  * @author HP
  */
+
 public class Server extends Calculator {
-    private int stocare;
+    private int stocare;  
     private String procesor;
+    private byte memorieRAM; 
     private String tipRetea;
-    private String sistemOperare;
-    private int vitezaInternet;
+
     public Server() {
         super();
     }
-    public Server(String marca, String model, int stocare, String procesor, String tipRetea, String sistemOperare, int vitezaInternet) {
+
+    public Server(String marca, String model, int stocare, String procesor, byte memorieRAM, String tipRetea) {
         super(marca, model);
         this.stocare = stocare;
         this.procesor = procesor;
+        this.memorieRAM = memorieRAM;
         this.tipRetea = tipRetea;
-        this.sistemOperare = sistemOperare;
-        this.vitezaInternet = vitezaInternet;
     }
+
     public Server(Server altServer) {
         super(altServer);
         this.stocare = altServer.stocare;
         this.procesor = altServer.procesor;
+        this.memorieRAM = altServer.memorieRAM;
         this.tipRetea = altServer.tipRetea;
-        this.sistemOperare = altServer.sistemOperare;
-        this.vitezaInternet = altServer.vitezaInternet;
     }
+
+    @Override
     public void pornire() {
         System.out.println("Serverul se pornește.");
     }
+
+    @Override
     public void oprire() {
         System.out.println("Serverul se oprește.");
     }
-public String toString() {
-    return super.toString() + " stocare=" + stocare + " GB, procesor=" + procesor + 
-           ", tipRetea=" + tipRetea + ", sistemOperare=" + sistemOperare + 
-           ", vitezaInternet=" + vitezaInternet + " Mbps";
-}
+
+    @Override
+    public String toString() {
+        return super.toString() + " [stocare=" + stocare + " GB, procesor=" + procesor +
+                ", memorieRAM=" + memorieRAM + " GB, tipRetea=" + tipRetea + "]";
+    }
+
     public int getStocare() {
         return stocare;
     }
+
     public void setStocare(int stocare) {
         this.stocare = stocare;
     }
@@ -58,27 +66,19 @@ public String toString() {
         this.procesor = procesor;
     }
 
+    public byte getMemorieRAM() {
+        return memorieRAM;
+    }
+
+    public void setMemorieRAM(byte memorieRAM) {
+        this.memorieRAM = memorieRAM;
+    }
+
     public String getTipRetea() {
         return tipRetea;
     }
 
     public void setTipRetea(String tipRetea) {
         this.tipRetea = tipRetea;
-    }
-
-    public String getSistemOperare() {
-        return sistemOperare;
-    }
-
-    public void setSistemOperare(String sistemOperare) {
-        this.sistemOperare = sistemOperare;
-    }
-
-    public int getVitezaInternet() {
-        return vitezaInternet;
-    }
-
-    public void setVitezaInternet(int vitezaInternet) {
-        this.vitezaInternet = vitezaInternet;
     }
 }
