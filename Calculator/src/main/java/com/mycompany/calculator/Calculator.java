@@ -6,11 +6,12 @@ package com.mycompany.calculator;
  *
  * @author HP
  */
-
+import java.util.ArrayList;  // Pentru ArrayList
 
 public class Calculator implements OperatiuniCalculator {
-    protected String marca;
-    protected String model;
+    private String marca;
+    private String model;
+    private ArrayList<Object> instantaVector = new ArrayList<>();
 
     public Calculator() {}
 
@@ -48,6 +49,14 @@ public class Calculator implements OperatiuniCalculator {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public ArrayList<Object> getInstantaVector() {
+        return instantaVector;
+    }
+
+    public void setInstantaVector(ArrayList<Object> instantaVector) {
+        this.instantaVector = instantaVector;
     }
 
     @Override
