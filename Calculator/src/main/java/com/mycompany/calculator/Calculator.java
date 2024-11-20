@@ -6,12 +6,11 @@ package com.mycompany.calculator;
  *
  * @author HP
  */
-import java.util.ArrayList;  // Pentru ArrayList
-
+import java.util.ArrayList;
 public class Calculator implements OperatiuniCalculator {
     private String marca;
     private String model;
-    private ArrayList<Object> instantaVector = new ArrayList<>();
+    private ArrayList<Calculator> instantaVector = new ArrayList<>();
 
     public Calculator() {}
 
@@ -51,12 +50,36 @@ public class Calculator implements OperatiuniCalculator {
         this.model = model;
     }
 
-    public ArrayList<Object> getInstantaVector() {
+    public ArrayList<Calculator> getInstantaVector() {
         return instantaVector;
     }
 
-    public void setInstantaVector(ArrayList<Object> instantaVector) {
-        this.instantaVector = instantaVector;
+    public void creareVector() {
+        for (int i = 0; i < 10; i++) {
+            instantaVector.add(new Calculator("Marca" + (i + 1), "Model" + (i + 1)));
+        }
+    }
+
+    public void afisareVector() {
+        for (Calculator calc : instantaVector) {
+            System.out.println(calc);
+        }
+    }
+
+    public void afisareVectorConditie1() {
+        for (Calculator calc : instantaVector) {
+            if ("Marca5".equals(calc.getMarca())) {
+                System.out.println(calc);
+            }
+        }
+    }
+
+    public void afisareVectorConditie2() {
+        for (Calculator calc : instantaVector) {
+            if (calc.getModel().contains("Model7")) {
+                System.out.println(calc);
+            }
+        }
     }
 
     @Override
