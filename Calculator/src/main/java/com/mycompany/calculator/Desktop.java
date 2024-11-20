@@ -7,78 +7,53 @@ package com.mycompany.calculator;
  *
  * @author HP
  */
-import java.util.ArrayList;  
+import java.util.ArrayList;
 public class Desktop extends Calculator {
-    private byte memorieRAM;
-    private short capacitateHDD;
+    private byte ram;
+    private short stocare;
     private String tipCarcasa;
-    private String tipPlacaDeBaza;
+    private String placaDeBaza;
     private boolean areMonitorInclus;
-    private ArrayList<Object> instantaVector = new ArrayList<>();
+    private ArrayList<Desktop> instantaVector = new ArrayList<>();
 
-    public Desktop() {
-        super();
-    }
 
-    public Desktop(String marca, String model, byte memorieRAM, short capacitateHDD, String tipCarcasa, String tipPlacaDeBaza, boolean areMonitorInclus) {
+    public Desktop() {}
+
+    
+    public Desktop(String marca, String model, byte ram, short stocare, String tipCarcasa, String placaDeBaza, boolean areMonitorInclus) {
         super(marca, model);
-        this.memorieRAM = memorieRAM;
-        this.capacitateHDD = capacitateHDD;
+        this.ram = ram;
+        this.stocare = stocare;
         this.tipCarcasa = tipCarcasa;
-        this.tipPlacaDeBaza = tipPlacaDeBaza;
+        this.placaDeBaza = placaDeBaza;
         this.areMonitorInclus = areMonitorInclus;
     }
 
+    
     public Desktop(Desktop altDesktop) {
-        super(altDesktop);
-        this.memorieRAM = altDesktop.memorieRAM;
-        this.capacitateHDD = altDesktop.capacitateHDD;
+        super(altDesktop.getMarca(), altDesktop.getModel());
+        this.ram = altDesktop.ram;
+        this.stocare = altDesktop.stocare;
         this.tipCarcasa = altDesktop.tipCarcasa;
-        this.tipPlacaDeBaza = altDesktop.tipPlacaDeBaza;
+        this.placaDeBaza = altDesktop.placaDeBaza;
         this.areMonitorInclus = altDesktop.areMonitorInclus;
     }
 
-    @Override
-    public void pornire() {
-        System.out.println("Desktopul se pornește.");
+    
+    public byte getRam() {
+        return ram;
     }
 
-    @Override
-    public void oprire() {
-        System.out.println("Desktopul se oprește.");
+    public void setRam(byte ram) {
+        this.ram = ram;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [memorieRAM=" + memorieRAM + " GB, capacitateHDD=" + capacitateHDD +
-                " GB, tipCarcasa=" + tipCarcasa + ", tipPlacaDeBaza=" + tipPlacaDeBaza +
-                ", areMonitorInclus=" + areMonitorInclus + "]";
+    public short getStocare() {
+        return stocare;
     }
 
-    // Getter și setter pentru instantaVector
-    public ArrayList<Object> getInstantaVector() {
-        return instantaVector;
-    }
-
-    public void setInstantaVector(ArrayList<Object> instantaVector) {
-        this.instantaVector = instantaVector;
-    }
-
-    // Getter și setter pentru celelalte variabile
-    public byte getMemorieRAM() {
-        return memorieRAM;
-    }
-
-    public void setMemorieRAM(byte memorieRAM) {
-        this.memorieRAM = memorieRAM;
-    }
-
-    public short getCapacitateHDD() {
-        return capacitateHDD;
-    }
-
-    public void setCapacitateHDD(short capacitateHDD) {
-        this.capacitateHDD = capacitateHDD;
+    public void setStocare(short stocare) {
+        this.stocare = stocare;
     }
 
     public String getTipCarcasa() {
@@ -89,12 +64,12 @@ public class Desktop extends Calculator {
         this.tipCarcasa = tipCarcasa;
     }
 
-    public String getTipPlacaDeBaza() {
-        return tipPlacaDeBaza;
+    public String getPlacaDeBaza() {
+        return placaDeBaza;
     }
 
-    public void setTipPlacaDeBaza(String tipPlacaDeBaza) {
-        this.tipPlacaDeBaza = tipPlacaDeBaza;
+    public void setPlacaDeBaza(String placaDeBaza) {
+        this.placaDeBaza = placaDeBaza;
     }
 
     public boolean isAreMonitorInclus() {
@@ -103,5 +78,44 @@ public class Desktop extends Calculator {
 
     public void setAreMonitorInclus(boolean areMonitorInclus) {
         this.areMonitorInclus = areMonitorInclus;
+    }
+
+    
+    public void creareVector() {
+        for (int i = 0; i < 10; i++) {
+            instantaVector.add(new Desktop("Marca" + (i + 1), "Model" + (i + 1), (byte) (8 + i), (short) (256 + i * 10), "ATX", "Placa" + i, i % 2 == 0));
+        }
+    }
+
+    public void afisareVector() {
+        for (Desktop desktop : instantaVector) {
+            System.out.println(desktop);
+        }
+    }
+
+    public void afisareVectorConditie1() {
+        for (Desktop desktop : instantaVector) {
+            if ("Marca5".equals(desktop.getMarca())) {
+                System.out.println(desktop);
+            }
+        }
+    }
+
+    public void afisareVectorConditie2() {
+        for (Desktop desktop : instantaVector) {
+            if (desktop.getModel().contains("Model7")) {
+                System.out.println(desktop);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Desktop [ram=" + ram +
+                ", stocare=" + stocare +
+                ", tipCarcasa=" + tipCarcasa +
+                ", placaDeBaza=" + placaDeBaza +
+                ", areMonitorInclus=" + areMonitorInclus + "]";
     }
 }
