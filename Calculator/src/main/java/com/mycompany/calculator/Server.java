@@ -3,11 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.calculator;
-/**
- *
- * @author HP
- */
+
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Server extends Calculator {
     private int numarProcesoare;
     private String tipProcesor;
@@ -15,8 +14,14 @@ public class Server extends Calculator {
     private short memorieRAM;
     private ArrayList<Server> instantaVector = new ArrayList<>();
 
-  
-    public Server() {}
+   
+    public Server() {
+        super();
+        this.numarProcesoare = 0;
+        this.tipProcesor = "Necunoscut";
+        this.frecventaProcesor = 0.0f;
+        this.memorieRAM = 0;
+    }
 
    
     public Server(String marca, String model, int numarProcesoare, String tipProcesor, float frecventaProcesor, short memorieRAM) {
@@ -69,35 +74,55 @@ public class Server extends Calculator {
         this.memorieRAM = memorieRAM;
     }
 
-    // Metode pentru manipularea vectorului
+   
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
-            instantaVector.add(new Server("Marca" + (i + 1), "Model" + (i + 1), i + 1, "Procesor" + i, 2.5f + i, (short) (16 + i * 4)));
+            instantaVector.add(new Server(
+                    "Marca" + (i + 1),
+                    "Model" + (i + 1),
+                    i + 1,
+                    "Procesor" + i,
+                    2.5f + i,
+                    (short) (16 + i * 4)
+            ));
         }
     }
 
+    
     public void afisareVector() {
         for (Server server : instantaVector) {
             System.out.println(server);
         }
     }
 
-    public void afisareVectorConditie1() {
+    
+    public void afisareVectorConditieMarcaCeruta() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti marca dorita: ");
+        String marcaCautata = scanner.nextLine();
+
         for (Server server : instantaVector) {
-            if ("Marca5".equals(server.getMarca())) {
+            if (marcaCautata.equals(server.getMarca())) {
                 System.out.println(server);
             }
         }
     }
 
-    public void afisareVectorConditie2() {
-        for (Server server : instantaVector) {
-            if (server.getModel().contains("Model7")) {
-                System.out.println(server);
-            }
+  
+public void afisareVectorConditieModelCerut() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Introduceti modelul dorit: ");
+    String modelCautat = scanner.nextLine();
+
+    for (Server server : instantaVector) {
+        if (server.getModel().contains(modelCautat)) {
+            System.out.println(server);
         }
     }
+}
 
+
+    
     @Override
     public String toString() {
         return super.toString() +
