@@ -94,10 +94,11 @@ public class Desktop extends Calculator{
     }
 
     
- @Override
+@Override
 public ArrayList<Calculator> getInstantaVector() {
-    return new ArrayList<Calculator>(instantaVector);
+    return super.getInstantaVector();  
 }
+
 
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
