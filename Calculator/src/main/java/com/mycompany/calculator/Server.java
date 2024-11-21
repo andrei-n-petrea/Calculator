@@ -13,17 +13,11 @@ public class Server extends Calculator {
     private float frecventaProcesor;
     private short memorieRAM;
     private ArrayList<Server> instantaVector = new ArrayList<>();
-
-   
     public Server() {
         super();
-        this.numarProcesoare = 0;
-        this.tipProcesor = "Necunoscut";
-        this.frecventaProcesor = 0.0f;
-        this.memorieRAM = 0;
     }
 
-   
+    
     public Server(String marca, String model, int numarProcesoare, String tipProcesor, float frecventaProcesor, short memorieRAM) {
         super(marca, model);
         this.numarProcesoare = numarProcesoare;
@@ -39,6 +33,18 @@ public class Server extends Calculator {
         this.tipProcesor = altServer.tipProcesor;
         this.frecventaProcesor = altServer.frecventaProcesor;
         this.memorieRAM = altServer.memorieRAM;
+    }
+
+  
+    @Override
+    public void pornire() {
+        System.out.println("Server-ul " + getModel() + " se pornește.");
+    }
+
+   
+    @Override
+    public void oprire() {
+        System.out.println("Server-ul " + getModel() + " se oprește.");
     }
 
     
@@ -73,8 +79,12 @@ public class Server extends Calculator {
     public void setMemorieRAM(short memorieRAM) {
         this.memorieRAM = memorieRAM;
     }
+@Override
+public ArrayList<Calculator> getInstantaVector() {
+    return new ArrayList<Calculator>(instantaVector);
+}
 
-   
+    
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
             instantaVector.add(new Server(
@@ -88,14 +98,14 @@ public class Server extends Calculator {
         }
     }
 
-    
+   
     public void afisareVector() {
         for (Server server : instantaVector) {
             System.out.println(server);
         }
     }
 
-    
+   
     public void afisareVectorConditieMarcaCeruta() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduceti marca dorita: ");
@@ -108,21 +118,20 @@ public class Server extends Calculator {
         }
     }
 
-  
-public void afisareVectorConditieModelCerut() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Introduceti modelul dorit: ");
-    String modelCautat = scanner.nextLine();
+   
+    public void afisareVectorConditieModelCerut() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti modelul dorit: ");
+        String modelCautat = scanner.nextLine();
 
-    for (Server server : instantaVector) {
-        if (server.getModel().contains(modelCautat)) {
-            System.out.println(server);
+        for (Server server : instantaVector) {
+            if (server.getModel().contains(modelCautat)) {
+                System.out.println(server);
+            }
         }
     }
-}
 
-
-    
+  
     @Override
     public String toString() {
         return super.toString() +
