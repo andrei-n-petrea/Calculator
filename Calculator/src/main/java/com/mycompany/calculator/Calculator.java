@@ -7,6 +7,8 @@ package com.mycompany.calculator;
  * @author HP
  */
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Calculator implements OperatiuniCalculator {
     private String marca;
     private String model;
@@ -66,17 +68,25 @@ public class Calculator implements OperatiuniCalculator {
         }
     }
 
-    public void afisareVectorConditie1() {
+    public void afisareVectorConditieMarcaCeruta() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti marca dorita: ");
+        String marcaCautata = scanner.nextLine();
+        
         for (Calculator calc : instantaVector) {
-            if ("Marca5".equals(calc.getMarca())) {
+            if (marcaCautata.equals(calc.getMarca())) {
                 System.out.println(calc);
             }
         }
     }
 
-    public void afisareVectorConditie2() {
+    public void afisareVectorConditieModelCerut() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti modelul dorit: ");
+        String modelCautat = scanner.nextLine();
+        
         for (Calculator calc : instantaVector) {
-            if (calc.getModel().contains("Model7")) {
+            if (calc.getModel().contains(modelCautat)) {
                 System.out.println(calc);
             }
         }
