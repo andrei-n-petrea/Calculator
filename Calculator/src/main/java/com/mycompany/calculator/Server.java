@@ -81,7 +81,7 @@ public class Server extends Calculator {
     }
 @Override
 public ArrayList<Calculator> getInstantaVector() {
-    return new ArrayList<Calculator>(instantaVector);
+    return super.getInstantaVector();  
 }
 
     
