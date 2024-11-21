@@ -8,6 +8,7 @@ package com.mycompany.calculator;
  * @author HP
  */
 import java.util.ArrayList;
+import java.util.Scanner;
 public class Desktop extends Calculator {
     private byte ram;
     private short stocare;
@@ -16,10 +17,8 @@ public class Desktop extends Calculator {
     private boolean areMonitorInclus;
     private ArrayList<Desktop> instantaVector = new ArrayList<>();
 
-
     public Desktop() {}
 
-    
     public Desktop(String marca, String model, byte ram, short stocare, String tipCarcasa, String placaDeBaza, boolean areMonitorInclus) {
         super(marca, model);
         this.ram = ram;
@@ -29,7 +28,6 @@ public class Desktop extends Calculator {
         this.areMonitorInclus = areMonitorInclus;
     }
 
-    
     public Desktop(Desktop altDesktop) {
         super(altDesktop.getMarca(), altDesktop.getModel());
         this.ram = altDesktop.ram;
@@ -39,48 +37,6 @@ public class Desktop extends Calculator {
         this.areMonitorInclus = altDesktop.areMonitorInclus;
     }
 
-    
-    public byte getRam() {
-        return ram;
-    }
-
-    public void setRam(byte ram) {
-        this.ram = ram;
-    }
-
-    public short getStocare() {
-        return stocare;
-    }
-
-    public void setStocare(short stocare) {
-        this.stocare = stocare;
-    }
-
-    public String getTipCarcasa() {
-        return tipCarcasa;
-    }
-
-    public void setTipCarcasa(String tipCarcasa) {
-        this.tipCarcasa = tipCarcasa;
-    }
-
-    public String getPlacaDeBaza() {
-        return placaDeBaza;
-    }
-
-    public void setPlacaDeBaza(String placaDeBaza) {
-        this.placaDeBaza = placaDeBaza;
-    }
-
-    public boolean isAreMonitorInclus() {
-        return areMonitorInclus;
-    }
-
-    public void setAreMonitorInclus(boolean areMonitorInclus) {
-        this.areMonitorInclus = areMonitorInclus;
-    }
-
-    
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
             instantaVector.add(new Desktop("Marca" + (i + 1), "Model" + (i + 1), (byte) (8 + i), (short) (256 + i * 10), "ATX", "Placa" + i, i % 2 == 0));
@@ -93,17 +49,25 @@ public class Desktop extends Calculator {
         }
     }
 
-    public void afisareVectorConditie1() {
+    public void afisareVectorConditieMarcaCeruta() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti marca dorita: ");
+        String marcaCautata = scanner.nextLine();
+
         for (Desktop desktop : instantaVector) {
-            if ("Marca5".equals(desktop.getMarca())) {
+            if (marcaCautata.equals(desktop.getMarca())) {
                 System.out.println(desktop);
             }
         }
     }
 
-    public void afisareVectorConditie2() {
+    public void afisareVectorConditieModelCerut() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti modelul dorit: ");
+        String modelCautat = scanner.nextLine();
+
         for (Desktop desktop : instantaVector) {
-            if (desktop.getModel().contains("Model7")) {
+            if (desktop.getModel().contains(modelCautat)) {
                 System.out.println(desktop);
             }
         }
