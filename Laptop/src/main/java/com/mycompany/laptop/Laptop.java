@@ -2,112 +2,155 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-
 package com.mycompany.calculator;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Laptop extends Calculator {
-    private int diagonalaEcran;
-    private int memorieRAM;
-    private int capacitateStocare;
-    private String tipProcesor;
-    private boolean arePlacaVideoDed;
-    private String sistemOperare;
-    private AccesoriiLaptop accesoriu;
+    private short baterie;
+    private float greutate;
+    private boolean areCamera;
+    private String tipDisplay;
+    private int rezolutieDisplay;
+    private boolean areTastaturaIluminata;
+    private ArrayList<Laptop> instantaVector = new ArrayList<>();
 
-    public Laptop() {
-        super();
-    }
+    public Laptop() {}
 
-    public Laptop(String marca, String model, int diagonalaEcran, int memorieRAM, int capacitateStocare, String tipProcesor, boolean arePlacaVideoDed, String sistemOperare, AccesoriiLaptop accesoriu) {
+    public Laptop(String marca, String model, short baterie, float greutate, boolean areCamera, String tipDisplay, int rezolutieDisplay, boolean areTastaturaIluminata) {
         super(marca, model);
-        this.diagonalaEcran = diagonalaEcran;
-        this.memorieRAM = memorieRAM;
-        this.capacitateStocare = capacitateStocare;
-        this.tipProcesor = tipProcesor;
-        this.arePlacaVideoDed = arePlacaVideoDed;
-        this.sistemOperare = sistemOperare;
-        this.accesoriu = accesoriu != null ? new AccesoriiLaptop(accesoriu) : null;
+        this.baterie = baterie;
+        this.greutate = greutate;
+        this.areCamera = areCamera;
+        this.tipDisplay = tipDisplay;
+        this.rezolutieDisplay = rezolutieDisplay;
+        this.areTastaturaIluminata = areTastaturaIluminata;
     }
 
     public Laptop(Laptop altLaptop) {
         super(altLaptop.getMarca(), altLaptop.getModel());
-        this.diagonalaEcran = altLaptop.diagonalaEcran;
-        this.memorieRAM = altLaptop.memorieRAM;
-        this.capacitateStocare = altLaptop.capacitateStocare;
-        this.tipProcesor = altLaptop.tipProcesor;
-        this.arePlacaVideoDed = altLaptop.arePlacaVideoDed;
-        this.sistemOperare = altLaptop.sistemOperare;
-        this.accesoriu = altLaptop.accesoriu != null ? new AccesoriiLaptop(altLaptop.accesoriu) : null;
+        this.baterie = altLaptop.baterie;
+        this.greutate = altLaptop.greutate;
+        this.areCamera = altLaptop.areCamera;
+        this.tipDisplay = altLaptop.tipDisplay;
+        this.rezolutieDisplay = altLaptop.rezolutieDisplay;
+        this.areTastaturaIluminata = altLaptop.areTastaturaIluminata;
     }
 
-  
+    @Override
     public void pornire() {
-        System.out.println("Laptopul se pornește.");
+        System.out.println("Laptopul " + getMarca() + " " + getModel() + " se pornește.");
     }
 
-    
+    @Override
     public void oprire() {
-        System.out.println("Laptopul se oprește.");
+        System.out.println("Laptopul " + getMarca() + " " + getModel() + " se oprește.");
     }
 
+    public short getBaterie() {
+        return baterie;
+    }
+
+    public void setBaterie(short baterie) {
+        this.baterie = baterie;
+    }
+
+    public float getGreutate() {
+        return greutate;
+    }
+
+    public void setGreutate(float greutate) {
+        this.greutate = greutate;
+    }
+
+    public boolean isAreCamera() {
+        return areCamera;
+    }
+
+    public void setAreCamera(boolean areCamera) {
+        this.areCamera = areCamera;
+    }
+
+    public String getTipDisplay() {
+        return tipDisplay;
+    }
+
+    public void setTipDisplay(String tipDisplay) {
+        this.tipDisplay = tipDisplay;
+    }
+
+    public int getRezolutieDisplay() {
+        return rezolutieDisplay;
+    }
+
+    public void setRezolutieDisplay(int rezolutieDisplay) {
+        this.rezolutieDisplay = rezolutieDisplay;
+    }
+
+    public boolean isAreTastaturaIluminata() {
+        return areTastaturaIluminata;
+    }
+
+    public void setAreTastaturaIluminata(boolean areTastaturaIluminata) {
+        this.areTastaturaIluminata = areTastaturaIluminata;
+    }
+
+    @Override
+public ArrayList<Calculator> getInstantaVector() {
+    return super.getInstantaVector();  
+}
+
+    public void creareVector() {
+        for (int i = 0; i < 10; i++) {
+            instantaVector.add(new Laptop(
+                    "Marca" + (i + 1),
+                    "Model" + (i + 1),
+                    (short) (4000 + i * 100),
+                    1.5f + i * 0.1f,
+                    i % 2 == 0,
+                    i % 2 == 0 ? "OLED" : "LCD",
+                    1920 + i * 10,
+                    i % 3 == 0
+            ));
+        }
+    }
+
+    public void afisareVector() {
+        for (Laptop laptop : instantaVector) {
+            System.out.println(laptop);
+        }
+    }
+
+    public void afisareVectorConditieMarcaCeruta() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti marca dorita: ");
+        String marcaCautata = scanner.nextLine();
+
+        for (Laptop laptop : instantaVector) {
+            if (marcaCautata.equals(laptop.getMarca())) {
+                System.out.println(laptop);
+            }
+        }
+    }
+
+    public void afisareVectorConditieModelCerut() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti modelul dorit: ");
+        String modelCautat = scanner.nextLine();
+
+        for (Laptop laptop : instantaVector) {
+            if (laptop.getModel().contains(modelCautat)) {
+                System.out.println(laptop);
+            }
+        }
+    }
+
+    @Override
     
     public String toString() {
-        return super.toString() + ", Laptop [diagonalaEcran=" + diagonalaEcran + "\", memorieRAM=" + memorieRAM + " GB, capacitateStocare=" + capacitateStocare + " GB, tipProcesor=" + tipProcesor + ", arePlacaVideoDed=" + arePlacaVideoDed + ", sistemOperare=" + sistemOperare + ", accesoriu=" + (accesoriu != null ? accesoriu.toString() : "Niciun accesoriu") + "]";
-    }
-
-    public AccesoriiLaptop getAccesoriu() {
-        return accesoriu;
-    }
-
-    public void setAccesoriu(AccesoriiLaptop accesoriu) {
-        this.accesoriu = accesoriu;
-    }
-
-    public int getDiagonalaEcran() {
-        return diagonalaEcran;
-    }
-
-    public void setDiagonalaEcran(int diagonalaEcran) {
-        this.diagonalaEcran = diagonalaEcran;
-    }
-
-    public int getMemorieRAM() {
-        return memorieRAM;
-    }
-
-    public void setMemorieRAM(int memorieRAM) {
-        this.memorieRAM = memorieRAM;
-    }
-
-    public int getCapacitateStocare() {
-        return capacitateStocare;
-    }
-
-    public void setCapacitateStocare(int capacitateStocare) {
-        this.capacitateStocare = capacitateStocare;
-    }
-
-    public String getTipProcesor() {
-        return tipProcesor;
-    }
-
-    public void setTipProcesor(String tipProcesor) {
-        this.tipProcesor = tipProcesor;
-    }
-
-    public boolean isArePlacaVideoDed() {
-        return arePlacaVideoDed;
-    }
-
-    public void setArePlacaVideoDed(boolean arePlacaVideoDed) {
-        this.arePlacaVideoDed = arePlacaVideoDed;
-    }
-
-    public String getSistemOperare() {
-        return sistemOperare;
-    }
-
-    public void setSistemOperare(String sistemOperare) {
-        this.sistemOperare = sistemOperare;
+        return "Laptop [marca=" + getMarca() + ", model=" + getModel() + ", baterie=" + baterie + "mAh, greutate=" + greutate + "kg, " +
+               "areCamera=" + areCamera + ", tipDisplay=" + tipDisplay + ", rezolutieDisplay=" + rezolutieDisplay + ", " +
+               "areTastaturaIluminata=" + areTastaturaIluminata + "]";
     }
 }
