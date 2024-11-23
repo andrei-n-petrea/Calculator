@@ -10,15 +10,14 @@ import java.util.Scanner;
  *
  * @author HP
  */
-public class Desktop extends Calculator{
+public class Desktop extends Calculator {
     private byte ram; 
     private short stocare; 
     private String formatCarcasa; 
     private String placaDeBaza; 
     private boolean placaVideoDedicate; 
-    private ArrayList<Desktop> instantaVector = new ArrayList<>();
+    private ArrayList<Desktop> vectorDesktopuri = new ArrayList<>();
 
-  
     public Desktop() {
         super(); 
     }
@@ -41,18 +40,16 @@ public class Desktop extends Calculator{
         this.placaVideoDedicate = altDesktop.placaVideoDedicate;
     }
 
-
     @Override
     public void pornire() {
-        System.out.println("Desktop-ul se pornește.");
+        System.out.println("Desktop-ul se porneste.");
     }
 
     @Override
     public void oprire() {
-        System.out.println("Desktop-ul se oprește.");
+        System.out.println("Desktop-ul se opreste.");
     }
 
-    
     public byte getRam() {
         return ram;
     }
@@ -93,17 +90,18 @@ public class Desktop extends Calculator{
         this.placaVideoDedicate = placaVideoDedicate;
     }
 
-    public ArrayList<Desktop> getVectorDesktop() {
-        return instantaVector;}
+    public ArrayList<Desktop> getVectorDesktopuri() {
+        return vectorDesktopuri;
+    }
 
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
-            instantaVector.add(new Desktop("Marca" + (i + 1), "Model" + (i + 1), (byte) (8 + i), (short) (500 + i * 50), "ATX", "MSI", true));
+            vectorDesktopuri.add(new Desktop("Marca" + (i + 1), "Model" + (i + 1), (byte) (8 + i), (short) (500 + i * 50), "ATX", "MSI", true));
         }
     }
 
     public void afisareVector() {
-        for (Desktop desktop : instantaVector) {
+        for (Desktop desktop : vectorDesktopuri) {
             System.out.println(desktop);
         }
     }
@@ -113,7 +111,7 @@ public class Desktop extends Calculator{
         System.out.print("Introduceti marca dorita: ");
         String marcaCautata = scanner.nextLine();
         
-        for (Desktop desktop : instantaVector) {
+        for (Desktop desktop : vectorDesktopuri) {
             if (marcaCautata.equals(desktop.getMarca())) {
                 System.out.println(desktop);
             }
@@ -125,17 +123,16 @@ public class Desktop extends Calculator{
         System.out.print("Introduceti modelul dorit: ");
         String modelCautat = scanner.nextLine();
         
-        for (Desktop desktop : instantaVector) {
+        for (Desktop desktop : vectorDesktopuri) {
             if (desktop.getModel().contains(modelCautat)) {
                 System.out.println(desktop);
             }
         }
     }
 
-   
     @Override
     public String toString() {
-        return "Desktop [marca=" + getMarca() + ", model=" + getModel() + ", ram=" + ram + "GB, stocare=" + stocare + "GB, " +
+        return "Desktop [marca=" + getMarca() + ", model=" + getModel() + ", RAM=" + ram + "GB, stocare=" + stocare + "GB, " +
                "formatCarcasa=" + formatCarcasa + ", placaDeBaza=" + placaDeBaza + ", placaVideoDedicate=" + placaVideoDedicate + "]";
     }
 }
