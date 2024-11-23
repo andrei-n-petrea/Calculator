@@ -79,12 +79,11 @@ public class Server extends Calculator {
     public void setMemorieRAM(short memorieRAM) {
         this.memorieRAM = memorieRAM;
     }
-@Override
-public ArrayList<Calculator> getInstantaVector() {
-    return super.getInstantaVector();  
-}
 
-    
+    public ArrayList<Server> getVectorServer() {
+        return instantaVector;
+    }
+
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
             instantaVector.add(new Server(
