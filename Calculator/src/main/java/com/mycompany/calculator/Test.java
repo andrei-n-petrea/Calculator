@@ -9,14 +9,14 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        // Liste pentru fiecare tip de dispozitiv
+        
         ArrayList<Calculator> instantaVector = new ArrayList<>();
         ArrayList<Desktop> vectorDesktopuri = new ArrayList<>();
         ArrayList<Server> vectorServere = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
 
-        // Instanțe de Calculator
+       
         Calculator calc1 = new Calculator();
         Calculator calc2 = new Calculator("HP", "Pavilion");
         Calculator calc3 = new Calculator(calc2);
