@@ -93,12 +93,8 @@ public class Desktop extends Calculator{
         this.placaVideoDedicate = placaVideoDedicate;
     }
 
-    
-@Override
-public ArrayList<Calculator> getInstantaVector() {
-    return super.getInstantaVector();  
-}
-
+    public ArrayList<Desktop> getVectorDesktop() {
+        return instantaVector;}
 
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
