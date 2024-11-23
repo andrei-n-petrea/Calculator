@@ -12,12 +12,12 @@ public class Server extends Calculator {
     private String tipProcesor;
     private float frecventaProcesor;
     private short memorieRAM;
-    private ArrayList<Server> instantaVector = new ArrayList<>();
+    private ArrayList<Server> vectorServere = new ArrayList<>();
+
     public Server() {
         super();
     }
 
-    
     public Server(String marca, String model, int numarProcesoare, String tipProcesor, float frecventaProcesor, short memorieRAM) {
         super(marca, model);
         this.numarProcesoare = numarProcesoare;
@@ -26,7 +26,6 @@ public class Server extends Calculator {
         this.memorieRAM = memorieRAM;
     }
 
-    
     public Server(Server altServer) {
         super(altServer.getMarca(), altServer.getModel());
         this.numarProcesoare = altServer.numarProcesoare;
@@ -35,19 +34,16 @@ public class Server extends Calculator {
         this.memorieRAM = altServer.memorieRAM;
     }
 
-  
     @Override
     public void pornire() {
         System.out.println("Server-ul " + getModel() + " se pornește.");
     }
 
-   
     @Override
     public void oprire() {
         System.out.println("Server-ul " + getModel() + " se oprește.");
     }
 
-    
     public int getNumarProcesoare() {
         return numarProcesoare;
     }
@@ -80,13 +76,13 @@ public class Server extends Calculator {
         this.memorieRAM = memorieRAM;
     }
 
-    public ArrayList<Server> getVectorServer() {
-        return instantaVector;
+    public ArrayList<Server> getVectorServere() {
+        return vectorServere;
     }
 
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
-            instantaVector.add(new Server(
+            vectorServere.add(new Server(
                     "Marca" + (i + 1),
                     "Model" + (i + 1),
                     i + 1,
@@ -97,46 +93,42 @@ public class Server extends Calculator {
         }
     }
 
-   
     public void afisareVector() {
-        for (Server server : instantaVector) {
+        for (Server server : vectorServere) {
             System.out.println(server);
         }
     }
 
-   
     public void afisareVectorConditieMarcaCeruta() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduceti marca dorita: ");
         String marcaCautata = scanner.nextLine();
 
-        for (Server server : instantaVector) {
-            if (marcaCautata.equals(server.getMarca())) {
+        for (Server server : vectorServere) {
+            if (marcaCautata.equalsIgnoreCase(server.getMarca())) {
                 System.out.println(server);
             }
         }
     }
 
-   
     public void afisareVectorConditieModelCerut() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduceti modelul dorit: ");
+        System.out.print("Introduceți modelul dorit: ");
         String modelCautat = scanner.nextLine();
 
-        for (Server server : instantaVector) {
+        for (Server server : vectorServere) {
             if (server.getModel().contains(modelCautat)) {
                 System.out.println(server);
             }
         }
     }
 
-  
     @Override
     public String toString() {
-        return super.toString() +
-                ", Server [numarProcesoare=" + numarProcesoare +
-                ", tipProcesor=" + tipProcesor +
-                ", frecventaProcesor=" + frecventaProcesor +
-                ", memorieRAM=" + memorieRAM + "]";
+        return "Server [marca=" + getMarca() + ", model=" + getModel() +
+               ", numarProcesoare=" + numarProcesoare +
+               ", tipProcesor=" + tipProcesor +
+               ", frecventaProcesor=" + frecventaProcesor +
+               "GHz, memorieRAM=" + memorieRAM + "GB]";
     }
 }
