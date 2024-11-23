@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Calculator implements OperatiuniCalculator {
     private String marca;
     private String model;
-    private ArrayList<Calculator> instantaVector = new ArrayList<>();
+    protected ArrayList<Calculator> vectorCalculatoare = new ArrayList<>();
 
     public Calculator() {}
 
@@ -28,12 +28,12 @@ public class Calculator implements OperatiuniCalculator {
 
     @Override
     public void pornire() {
-        System.out.println("Calculatorul general se pornește.");
+        System.out.println("Calculatorul general se porneste.");
     }
 
     @Override
     public void oprire() {
-        System.out.println("Calculatorul general se oprește.");
+        System.out.println("Calculatorul general se opreste.");
     }
 
     public String getMarca() {
@@ -52,18 +52,18 @@ public class Calculator implements OperatiuniCalculator {
         this.model = model;
     }
 
-    public ArrayList<Calculator> getInstantaVector() {
-        return instantaVector;
+    public ArrayList<Calculator> getVectorCalculatoare() {
+        return vectorCalculatoare;
     }
 
     public void creareVector() {
         for (int i = 0; i < 10; i++) {
-            instantaVector.add(new Calculator("Marca" + (i + 1), "Model" + (i + 1)));
+            vectorCalculatoare.add(new Calculator("Marca" + (i + 1), "Model" + (i + 1)));
         }
     }
 
     public void afisareVector() {
-        for (Calculator calc : instantaVector) {
+        for (Calculator calc : vectorCalculatoare) {
             System.out.println(calc);
         }
     }
@@ -73,7 +73,7 @@ public class Calculator implements OperatiuniCalculator {
         System.out.print("Introduceti marca dorita: ");
         String marcaCautata = scanner.nextLine();
         
-        for (Calculator calc : instantaVector) {
+        for (Calculator calc : vectorCalculatoare) {
             if (marcaCautata.equals(calc.getMarca())) {
                 System.out.println(calc);
             }
@@ -85,7 +85,7 @@ public class Calculator implements OperatiuniCalculator {
         System.out.print("Introduceti modelul dorit: ");
         String modelCautat = scanner.nextLine();
         
-        for (Calculator calc : instantaVector) {
+        for (Calculator calc : vectorCalculatoare) {
             if (calc.getModel().contains(modelCautat)) {
                 System.out.println(calc);
             }
@@ -94,6 +94,6 @@ public class Calculator implements OperatiuniCalculator {
 
     @Override
     public String toString() {
-        return "Calculator [marca=" + marca + ", model=" + model + "]";
+        return "Calculator [Marca=" + marca + ", Model=" + model + "]";
     }
 }
