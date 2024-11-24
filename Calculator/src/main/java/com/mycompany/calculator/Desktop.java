@@ -124,7 +124,7 @@ public class Desktop extends Calculator {
         String modelCautat = scanner.nextLine();
         
         for (Desktop desktop : vectorDesktopuri) {
-            if (desktop.getModel().contains(modelCautat)) {
+            if (desktop.getModel().equals(modelCautat)) {
                 System.out.println(desktop);
             }
         }
