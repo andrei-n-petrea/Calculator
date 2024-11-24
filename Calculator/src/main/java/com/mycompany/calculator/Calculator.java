@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Calculator implements OperatiuniCalculator {
     private String marca;
     private String model;
-    protected ArrayList<Calculator> vectorCalculatoare = new ArrayList<>();
+    private ArrayList<Calculator> vectorCalculatoare = new ArrayList<>();
 
     public Calculator() {}
 
@@ -86,7 +86,7 @@ public class Calculator implements OperatiuniCalculator {
         String modelCautat = scanner.nextLine();
         
         for (Calculator calc : vectorCalculatoare) {
-            if (calc.getModel().contains(modelCautat)) {
+            if (calc.getModel().equals(modelCautat)) {
                 System.out.println(calc);
             }
         }
