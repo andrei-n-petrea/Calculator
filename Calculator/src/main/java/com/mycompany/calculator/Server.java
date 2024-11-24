@@ -105,7 +105,7 @@ public class Server extends Calculator {
         String marcaCautata = scanner.nextLine();
 
         for (Server server : vectorServere) {
-            if (marcaCautata.equalsIgnoreCase(server.getMarca())) {
+            if (marcaCautata.equals(server.getMarca())) {
                 System.out.println(server);
             }
         }
@@ -113,11 +113,11 @@ public class Server extends Calculator {
 
     public void afisareVectorConditieModelCerut() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduceți modelul dorit: ");
+        System.out.print("Introduceti modelul dorit: ");
         String modelCautat = scanner.nextLine();
 
         for (Server server : vectorServere) {
-            if (server.getModel().contains(modelCautat)) {
+            if (server.getModel().equals(modelCautat)) {
                 System.out.println(server);
             }
         }
