@@ -1,6 +1,4 @@
 package com.mycompany.calculator;
-import java.util.Scanner;
-import java.util.ArrayList;
 public class Calculator implements OperatiuniCalculator {
     private String marca;
     private String model;
