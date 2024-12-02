@@ -55,7 +55,7 @@ public class Server extends Calculator {
     }
     @Override
     public String toString() {
-        return "Server [marca=" + getMarca() + ", model=" + getModel() +
+        return super.toString()+ "Server [marca=" + getMarca() + ", model=" + getModel() +
                ", numarProcesoare=" + numarProcesoare +
                ", tipProcesor=" + tipProcesor +
                ", frecventaProcesor=" + frecventaProcesor +
