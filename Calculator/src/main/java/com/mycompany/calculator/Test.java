@@ -21,20 +21,17 @@ public class Test {
         for (Calculator calc : vectorCalculatoare) {
             System.out.println(calc);
         }
-  System.out.println("\nFiltrare Calculatoare dupa marca introdusa:");
         Scanner scanner = new Scanner(System.in);
+       // Filtrare Calculatoare după două conditii
+        System.out.println("\nFiltrare Calculatoare dupa doua conditii:");
         System.out.print("Introduceti marca dorita: ");
         String marcaCautata = scanner.nextLine();
-        for (Calculator calc : vectorCalculatoare) {
-            if (marcaCautata.equals(calc.getMarca())) {
-                System.out.println(calc);
-            }
-        }
-        System.out.println("\nFiltrare Calculatoare dupa modelul introdus:");
         System.out.print("Introduceti modelul dorit: ");
         String modelCautat = scanner.nextLine();
+
+        System.out.println("\nCalculatoare care respecta conditiile:");
         for (Calculator calc : vectorCalculatoare) {
-            if (calc.getModel().equals(modelCautat)) {
+            if (calc.getMarca().equals(marcaCautata) && calc.getModel().equals(modelCautat)) {
                 System.out.println(calc);
             }
         }
@@ -60,19 +57,16 @@ public class Test {
         for (Desktop desktop : vectorDesktopuri) {
             System.out.println(desktop);
         }
-   System.out.println("\nFiltrare Desktopuri dupa RAM:");
+  System.out.println("\nFiltrare Desktopuri dupa doua conditii:");
         System.out.print("Introduceti valoarea minima a RAM-ului (GB): ");
         byte ramMinim = Byte.parseByte(scanner.nextLine());
-        for (Desktop desktop : vectorDesktopuri) {
-            if (desktop.getRam() >= ramMinim) {
-                System.out.println(desktop);
-            }
-        }
-   System.out.println("\nFiltrare Desktopuri dupa tipul de carcasa:");
+
         System.out.print("Introduceti tipul de carcasa dorit: ");
         String carcasaCautata = scanner.nextLine();
+
+        System.out.println("\nDesktopuri care respecta conditiile:");
         for (Desktop desktop : vectorDesktopuri) {
-            if (desktop.getFormatCarcasa().equals(carcasaCautata)) {
+            if (desktop.getRam() >= ramMinim && desktop.getFormatCarcasa().equals(carcasaCautata)) {
                 System.out.println(desktop);
             }
         }
@@ -97,19 +91,16 @@ public class Test {
         for (Server server : vectorServere) {
             System.out.println(server);
         }
-       System.out.println("\nFiltrare Servere dupa numar de procesoare:");
+   // Filtrare Servere după două conditii
+        System.out.println("\nFiltrare Servere dupa doua conditii:");
         System.out.print("Introduceti numarul minim de procesoare: ");
         int numarProcesoare = Integer.parseInt(scanner.nextLine());
-        for (Server server : vectorServere) {
-            if (server.getNumarProcesoare() >= numarProcesoare) {
-                System.out.println(server);
-            }
-        }
-       System.out.println("\nFiltrare Servere dupa frecventa procesorului:");
         System.out.print("Introduceti frecventa minima a procesorului (GHz): ");
         float frecventaMinima = Float.parseFloat(scanner.nextLine());
+
+        System.out.println("\nServere care respecta conditiile:");
         for (Server server : vectorServere) {
-            if (server.getFrecventaProcesor() >= frecventaMinima) {
+            if (server.getNumarProcesoare() >= numarProcesoare && server.getFrecventaProcesor() >= frecventaMinima) {
                 System.out.println(server);
             }
         }
