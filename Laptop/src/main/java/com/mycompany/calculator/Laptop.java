@@ -1,16 +1,11 @@
 package com.mycompany.calculator;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Laptop extends Calculator {
     private float diagonalaEcran;
     private int durataBaterie;
     private boolean touchScreen;
     private String rezolutieEcran;
     private String sistemOperare;
-
-    private ArrayList<Laptop> vectorLaptopuri = new ArrayList<>();
 
     public Laptop() {}
 
@@ -23,7 +18,7 @@ public class Laptop extends Calculator {
         this.rezolutieEcran = rezolutieEcran;
         this.sistemOperare = sistemOperare;
     }
-    
+
     public Laptop(Laptop altLaptop) {
         super(altLaptop.getMarca(), altLaptop.getModel());
         this.diagonalaEcran = altLaptop.diagonalaEcran;
@@ -33,6 +28,7 @@ public class Laptop extends Calculator {
         this.sistemOperare = altLaptop.sistemOperare;
     }
 
+
     public float getDiagonalaEcran() {
         return diagonalaEcran;
     }
@@ -41,6 +37,7 @@ public class Laptop extends Calculator {
         this.diagonalaEcran = diagonalaEcran;
     }
 
+   
     public int getDurataBaterie() {
         return durataBaterie;
     }
@@ -49,6 +46,7 @@ public class Laptop extends Calculator {
         this.durataBaterie = durataBaterie;
     }
 
+ 
     public boolean isTouchScreen() {
         return touchScreen;
     }
@@ -57,6 +55,7 @@ public class Laptop extends Calculator {
         this.touchScreen = touchScreen;
     }
 
+  
     public String getRezolutieEcran() {
         return rezolutieEcran;
     }
@@ -65,56 +64,13 @@ public class Laptop extends Calculator {
         this.rezolutieEcran = rezolutieEcran;
     }
 
+  
     public String getSistemOperare() {
         return sistemOperare;
     }
 
     public void setSistemOperare(String sistemOperare) {
         this.sistemOperare = sistemOperare;
-    }
-
-    public void creareVector() {
-        for (int i = 0; i < 10; i++) {
-            vectorLaptopuri.add(new Laptop(
-                "Marca" + (i + 1),
-                "Model" + (i + 1),
-                13.3f + i,
-                6 + i,
-                i % 2 == 0,
-                "1920x1080",
-                "Windows 10"
-            ));
-        }
-    }
-
-    public void afisareVector() {
-        for (Laptop laptop : vectorLaptopuri) {
-            System.out.println(laptop);
-        }
-    }
-
-    public void afisareVectorConditieDiagonala() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduceti diagonala minima dorita: ");
-        float diagonalaMinima = scanner.nextFloat();
-
-        for (Laptop laptop : vectorLaptopuri) {
-            if (laptop.getDiagonalaEcran() >= diagonalaMinima) {
-                System.out.println(laptop);
-            }
-        }
-    }
-
-    public void afisareVectorConditieDurata() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduceti durata minima a bateriei (ore): ");
-        int durataMinima = scanner.nextInt();
-
-        for (Laptop laptop : vectorLaptopuri) {
-            if (laptop.getDurataBaterie() >= durataMinima) {
-                System.out.println(laptop);
-            }
-        }
     }
 
     @Override
