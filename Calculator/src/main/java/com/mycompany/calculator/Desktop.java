@@ -1,6 +1,4 @@
 package com.mycompany.calculator;
-import java.util.ArrayList;
-import java.util.Scanner;
 public class Desktop extends Calculator {
     private byte ram;
     private short stocare;
