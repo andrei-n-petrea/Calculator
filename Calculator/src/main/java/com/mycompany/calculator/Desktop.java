@@ -64,7 +64,7 @@ public class Desktop extends Calculator {
     }
     @Override
     public String toString() {
-        return "Desktop [marca=" + getMarca() + ", model=" + getModel() + ", RAM=" + ram + "GB, stocare=" + stocare + "GB, " +
+       return super.toString()+ "Desktop [marca=" + getMarca() + ", model=" + getModel() + ", RAM=" + ram + "GB, stocare=" + stocare + "GB, " +
                "formatCarcasa=" + formatCarcasa + ", placaDeBaza=" + placaDeBaza + ", placaVideoDedicate=" + placaVideoDedicate + "]";
     }
 }
