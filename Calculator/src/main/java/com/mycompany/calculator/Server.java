@@ -1,6 +1,4 @@
 package com.mycompany.calculator;
-import java.util.ArrayList;
-import java.util.Scanner;
 public class Server extends Calculator {
     private int numarProcesoare;
     private String tipProcesor;
