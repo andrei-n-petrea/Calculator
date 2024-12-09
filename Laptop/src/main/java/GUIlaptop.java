@@ -13,7 +13,7 @@ private List<Laptop> laptopuri;
 
 public GUIlaptop() {
     initComponents();
-    laptopuri = new ArrayList<>(); // Inițializează lista
+    laptopuri = new ArrayList<>();
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
         new Object[][]{},
         new String[]{
@@ -25,7 +25,7 @@ public GUIlaptop() {
 
 private void actualizeazaTabel() {
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // Resetăm rândurile existente
+    model.setRowCount(0);
 
     for (Laptop laptop : laptopuri) {
         Object[] row = {
@@ -219,10 +219,10 @@ private void actualizeazaTabel() {
     private void btnVerificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificaActionPerformed
                                           
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // Resetăm rândurile existente
+    model.setRowCount(0);
 
     for (Laptop laptop : laptopuri) {
-        if (laptop.isTouchScreen()) { // Afișează doar laptopurile cu touchscreen
+        if (laptop.isTouchScreen()) {
             Object[] row = {
                 laptop.getDiagonalaEcran(),
                 laptop.getDurataBaterie(),
